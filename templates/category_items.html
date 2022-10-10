@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block mainblock %}
+
+<br>
+<div class="container">
+<div class="shop-product-wrap list row">
+    <div class="col-lg-3 col-md-4 col-sm-6">
+  
+
+    {% for i  in pro %}
+
+    <div class="sinrato-list-item mb-30">
+        <div class="sinrato-thumb">
+            <a href="{% url 'buyer:proddetails' id=i.id %}">
+                <img src="{{ i.product_img.url }}" >
+            </a>
+            <div class="box-label">
+                <div class="label-product label_sale">
+                    <span>New</span>
+                </div>
+            </div>
+        </div>
+        <div class="sinrato-list-item-content">
+            <div class="sinrato-product-name">
+                <h4><a href="{% url 'buyer:proddetails' id=i.id %}">{{ i.product_name }}</a></h4>
+            </div>
+
+            <div class="sinrato-product-des">
+                <p>{{ i.product_desc }}</p>
+            </div>
+        </div>
+        <div class="sinrato-box-action">
+            <div class="price-box">
+                <span class="regular-price"><span class="special-price">Rs {{ i.product_price }}</span></span>
+                <span class="old-price"><del>Rs {{ i.product_old_price }}</del></span>
+            </div>
+            <!-- <a class="btn-cart" type="button" href="{%  url 'buyer:cartitems' %}">add to cart</a> -->
+
+        </div>
+    </div> <!-- end single list item -->
+
+    {% endfor %}
+    
+</div>
+
+</div>
+</div>
+{% endblock %}

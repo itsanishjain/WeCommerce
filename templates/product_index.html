@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+
+{% block mainblock %}
+
+
+{% for c in cat %}
+
+<div class="product-wrapper fix pb-70">
+    <div class="container-fluid">
+
+        <div class="section-title product-spacing hm-11">
+            <h3><span>our</span> {{c}}</h3>
+            <div class="boxx-tab">
+                <ul class="nav my-tab">
+                    <li>
+                    <form action="{% url 'buyer:buyerapp' %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <a href="{% url 'buyer:buyerapp' %}" style="text-decoration:none;"><input type="submit" name="ser" value="{{ c }}" class="btn btn-warning" style="width: 100px; background-color: #FEDC19;font-weight: bold;"></a>
+                    </form>
+                </li>
+                    
+
+
+                    <!-- <li>
+                        <a data-toggle="tab" href="#two">Audio & Home Theater</a>
+                    </li>
+                    <li>
+                        <a data-toggle="tab" href="#three">Cellphones & Accessories</a>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+
+
+        
+        
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="one">
+                <div class="product-gallary-wrapper">
+                    <div class="product-gallary-active owl-carousel owl-arrow-style product-spacing">
+                        {% for i in pro  %}
+
+                        <!-- products -->
+                        {% if c == i.category %}
+
+                        <div class="product-item">
+                            <div class="product-thumb">
+                                <a href="{% url 'buyer:proddetails' id=i.id %}">
+                                    <img src="{{ i.product_img.url }}" >
+                                </a>
+                                <div class="box-label">
+                                    <div class="label-product label_new">
+                                        <span>new</span>
+                                    </div>
+                                </div>
+                        
+                            </div>
+                            <!-- product captions -->
+                            <div class="product-caption">
+                                <div class="product-name">
+                                    <h4><a href="{% url 'buyer:proddetails' id=i.id %}">{{ i.product_name }}</a></h4>
+                                </div>
+                                <div class="price-box">
+                                    <span class="regular-price">Rs {{ i.product_price }}</span>
+                                    <span class="old-price"><del>Rs {{ i.product_old_price }}</del></span>
+                                </div>
+                                <!-- <form method="post">
+                                    {% csrf_token %}
+                                <button class="btn-cart" type="button">add to cart</button>
+                                <a href="#"><input class="btn-cart" type="submit" name="" value="add to cart" ></a>
+                                </form> -->
+                            </div>
+                        
+                        </div>
+
+
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>   
+            </div>             
+        </div>   
+
+        
+ 
+        
+
+        
+
+
+    </div>
+</div>
+{% endfor %}
+
+
+{% endblock %}

@@ -1,0 +1,129 @@
+
+{% load staticfiles %}
+
+
+
+
+  <!-- Navigation -->
+  {% block navigation %}
+ 
+  {% include 'navbar.html' %}
+ 
+
+  {% endblock %}
+  
+  {% block slider %}
+
+  {% if request.path != '/' %}
+
+  {% else %}
+  {% include 'slider.html' %}
+
+  {% endif %}
+
+  
+  
+  {% endblock %}
+
+
+  <!-- Page Content -->
+ 
+
+    <!-- Jumbotron Header -->
+    {% block mainblock %}
+
+  
+
+    {% endblock %}
+
+
+
+
+    {% block sellernotifications %}
+    {% endblock %}
+
+    {% block createnotifications %}
+    {% endblock %}
+
+    {% block sellerorders %}
+    {% endblock %}
+
+
+  <!-- /.container -->
+
+
+
+    <!-- footer area start -->
+<center>
+    <footer>
+<hr>
+      <!-- footer top area start -->
+      <div class="footer-top pt-50 pb-50">
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12">
+                      <div class="footer-single-widget">
+                          <div class="widget-title">
+                              <div class="footer-logo mb-30">
+                                  <a>
+                                       <img src="{% static 'sinrato/assets/img/logo/logo-sinrato.png' %}" alt="">
+                                  </a>
+                              </div>
+                          </div>
+
+                      </div>
+                  </div> <!-- single widget end -->
+                   <!-- single widget end -->
+                  <div class="col-lg-12 col-md-12 col-sm-12">
+                      <div class="footer-single-widget">
+                          <div class="widget-title">
+                              <h4>contact us</h4>
+                          </div>
+                          <div class="widget-body">
+                              <div class="footer-useful-link">
+                                  <ul>
+                                      <li><span>Address:</span> Main Road, Hoshangabad 461001</li>
+                                      <li><span>Email:</span><a href="mailto:kumar_yama@yahoo.co.in">kumar_yama@yahoo.co.in</a></li>
+                                      <li><span>Call us:</span> <strong><a style="color: Black;" href="tel:+919827252649">+91 9827252649</a></strong></li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+              </div>
+          </div>
+      </div>
+      <!-- footer top area end -->
+      <!-- footer bottom area start -->
+
+      <div class="footer-bottom">
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="col-12">
+                      <div class="footer-bottom-content">
+                          <div class="footer-copyright">
+                              <center>
+                          <p>Copyright © <span><script>document.write(new Date().getFullYear())</script></span> <a>kart Enterprises</a>. All Rights Reserved</p></center>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- footer bottom area end -->
+  </footer>
+    </center>
+  <!-- footer area end -->
+
+  <!-- all js include here -->
+  <script src="{% static 'sinrato/assets/js/vendor/jquery-1.12.4.min.js' %}"></script>
+  <script src="{% static 'sinrato/assets/js/popper.min.js' %}"></script>
+  <script src="{% static 'sinrato/assets/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'sinrato/assets/js/plugins.js' %}"></script>
+  <script src="{% static 'sinrato/assets/js/ajax-mail.js' %}"></script>
+  <script src="{% static 'sinrato/assets/js/main.js' %}"></script>
+
+</body>
+
+</html>

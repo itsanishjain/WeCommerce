@@ -1,0 +1,70 @@
+{%  extends 'base.html' %}
+{% block mainblock %}
+
+<div class="product-details-main-wrapper pb-50">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="product-large-slider mb-20">
+                    <div class="pro-large-img">
+                        <img src="{{ pro.product_img.url }}" alt="" />
+                        <div class="img-view">
+                            <a class="img-popup" href="{{ pro.product_img.url }}"><i class="fa fa-search"></i></a>
+                        </div>
+                    </div>
+
+
+
+                    <div class="pro-large-img">
+                        <img src="{{ pro.product_img.url }}" alt=""/>
+                        <div class="img-view">
+                            <a class="img-popup" href="{{ pro.product_img.url }}"><i class="fa fa-search"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="product-details-inner">
+                    <div class="product-details-contentt">
+                        <div class="pro-details-name mb-10">
+                            <h3>{{ pro.product_name }}</h3>
+                        </div>
+
+                        <div class="price-box mb-15">
+                            <span class="regular-price"><span class="special-price">Rs {{ pro.product_price }} /-</span></span>
+                            <span class="old-price"><del>Rs {{ pro.product_old_price }} /-</del></span>
+                        </div>
+                        <div class="product-detail-sort-des pb-20">
+                            <p>{{ pro.product_desc }}</p>
+                        </div>
+                        <div class="pro-details-list pt-20">
+                            <ul>
+                                <li><span>Price :</span>₹ {{ pro.product_price }} /-</li>
+                                <li><span>Availability :</span>{{ pro.product_avail }} Items avialable</li>
+                            </ul>
+                        </div>
+
+                        <div class="pro-quantity-box mb-30">
+                            <div class="qty-boxx">
+
+
+                                <form method="post">
+                                    {% csrf_token %}
+                                    <a><input class="btn-cart lg-btn" type="submit" name="" value="Add to Cart"></a>
+                                 </form>          
+
+
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

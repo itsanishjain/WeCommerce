@@ -1,0 +1,167 @@
+<!doctype html>
+{% load staticfiles %}
+<html class="no-js" lang="en">
+
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <!-- Page Title -->
+	<title> - kart Enterprises</title>
+	<!--Fevicon-->
+	<link rel="icon" href="  {% static 'sinrato/assets/img/icon/favicon.ico" type="image/x-icon" />
+	<!-- Bootstrap css -->
+    <link rel="stylesheet" href="{% static 'sinrato/assets/css/bootstrap.min.css' %}">
+    <!-- linear-icon -->
+    <link rel="stylesheet" href="{% static 'sinrato/assets/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'sinrato/assets/css/linear-icon.css' %}">
+    <!-- all css plugins css -->
+    <link rel="stylesheet" href="{% static 'sinrato/assets/css/plugins.css' %}">
+    <!-- default style -->
+    <link rel="stylesheet" href="{% static 'sinrato/assets/css/default.css' %}">
+    <!-- Main Style css -->
+    <link rel="stylesheet" href="{% static 'sinrato/assets/css/style.css' %}">
+    <!-- responsive css -->
+    <link rel="stylesheet" href="{% static 'sinrato/assets/css/responsive.css' %}">
+
+    <!-- Modernizer JS -->
+    <script src="{% static 'sinrato/assets/js/vendor/modernizr-3.5.0.min.js' %}"></script>
+</head>
+<body>
+	<!--[if lte IE 9]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+    <![endif]-->
+
+    <!-- header area start -->
+    <header class="header-pos">
+        <div class="header-top black-bg">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-8 col-12">
+                        <div class="header-top-left">
+                            <ul>
+                                <li><span>Email: </span><a style="color:white" href="mailto:kumar_yama@yahoo.co.in">kumar_yama@yahoo.co.in</a></li>
+                                <li>Free Shipping on all orders of above ₹499</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-12">
+                        <div class="box box-right">
+
+                                {% if user.is_authenticated %}
+                                <ul>
+                                    <li><p style="color: white;">Welcome, {{ user.get_username }}.</p></li>
+                                    <li> <a style="color: white;" href="{% url 'logout' %}">Logout</a></li>
+                                </ul>
+                                {% else %}
+                               
+                            <ul>
+                                <li class="settings">
+                                    <a class="ha-toggle" href="#">My Account<span class="lnr lnr-chevron-down"></span></a>
+                                    <ul class="box-dropdown ha-dropdown">
+                                        
+
+                                        <li><a href="{% url 'register' %}">Register</a></li>
+                                        <li><a href="{% url 'login' %}">Login</a></li>
+
+
+
+                                       
+                                    </ul>
+                                </li>
+
+                            </ul>
+                             
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-middle">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-lg-2 col-md-4 col-sm-4 col-12">
+                        <div class="logo">
+                            
+                            <a href="{% url 'buyer:buyerapp' %}"><img src="{% static 'sinrato/assets/img/logo/logo-sinrato.png' %}" alt="brand-logo"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-12 order-sm-last">
+                        <div class="header-middle-inner">
+                            <form  action="{% url 'buyer:search' %}">
+                                <div class="top-cat hm1">
+                                    <div class="search-form">
+                                         <select>
+                                            <optgroup label="Electronics">
+                                                <option value="volvo">Laptop</option>
+                                                <option value="saab">watch</option>
+
+                                            </optgroup>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <input name='query' type="text" class="top-cat-field" placeholder="Search entire store here">
+                                <input type="submit" class="top-search-btn" value="Search">
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-8 col-12 col-sm-8 order-lg-last">
+                        <div class="mini-cart-option">
+                            <ul>
+                                <li class="compare">
+                                    <a class="ha-toggle" href="{% url 'buyer:order' %}"><span class="lnr lnr-sync"></span>My Orders</a>
+                                </li>
+
+                                <li class="my-cart">
+                                    <a class="ha-toggle" href="{% url 'buyer:cartitems' %}"><span class="lnr lnr-cart"></span>My Cart</a>
+                                    
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-top-menu theme-bg sticker">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="top-main-menu">
+
+                            <div class="main-menu">
+                                <nav id="mobile-menu">
+                                    <ul>
+                                        <li><a href="{% url 'buyer:buyerapp' %}">HOME</a>
+                                        </li>
+                                        <li><a href="{% url 'buyer:order' %}">My Orders</a>
+                                        </li>
+                                          <li><a href="{% url 'buyer:cartitems' %}">My Cart</a></li>
+                                     {% if user.is_authenticated %}
+                    <li> <a href="{% url 'logout' %}">Logout</a></li>
+
+                                        {% else %}
+                                         <li><a href="{% url 'register' %}">Register</a></li>
+                                        <li><a href="{% url 'login' %}">Login</a></li>
+
+                                        {% endif %}
+                                    </ul>
+                                </nav>
+                            </div> <!-- </div> end main menu -->
+                            <div class="header-call-action">
+                                <p><span class="lnr lnr-phone"></span>Hotline : <strong><a style="color: Black;" href="tel:+919827252649">+91 9827252649</a></strong></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 d-block d-lg-none"><div class="mobile-menu"></div></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header area end -->
+
+
