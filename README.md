@@ -1,10 +1,17 @@
-# ecommerce
+## How to run locally
 
-djnago based ecommerce web application
-credits - w3school templates , google images ,bootstrap , django docs
+- pip install -r requirements.txt
 
-website is about 5.5mbs
+> Using virtualenv
 
-django 2.0.2 version is used
-should use virtualenv
-dowload pakages from requirements.txt"# kart-enterprises-final"
+    - `python3 -m venv venv`
+
+    - `source bin/activate`
+
+    - `pip install -r requirements.txt`
+
+- python3 manage.py migrate
+
+- python3 manage.py createsuperuse
+
+- python3 manage.py runserver
